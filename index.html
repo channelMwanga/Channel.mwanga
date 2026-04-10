@@ -58,6 +58,10 @@ section:nth-child(even){background:var(--soft);}
 .cours-pills{display:flex;flex-wrap:wrap;gap:0.6rem;}
 .cours-pill{background:white;border:1px solid rgba(0,0,0,0.07);padding:0.4rem 1rem;border-radius:100px;font-size:0.8rem;font-weight:500;color:var(--navy);transition:border-color 0.2s;}
 .cours-pill:hover{border-color:var(--coral);}
+.cours-pill{cursor:pointer;transition:all 0.2s;}
+.cours-pill.open{background:var(--navy);color:white;border-color:var(--navy);}
+.cours-detail{display:none;width:100%;font-size:0.78rem;color:var(--muted);background:white;border-radius:12px;padding:0.7rem 1rem;margin-top:-0.2rem;border:1px solid rgba(0,0,0,0.07);line-height:1.6;}
+.cours-detail.open{display:block;}
   
 .exp-grid{display:grid;gap:1.1rem;}
 .exp-card{background:white;border-radius:18px;padding:1.6rem 2rem;border:1px solid rgba(0,0,0,0.05);display:grid;grid-template-columns:auto 1fr auto;gap:1.3rem;align-items:start;transition:transform 0.2s,box-shadow 0.2s;}
