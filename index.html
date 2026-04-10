@@ -468,6 +468,13 @@ document.querySelectorAll('.gallery-item').forEach(item=>{
   const offset=Math.random()*3000;
   setTimeout(()=>setInterval(nextSlide,3500),offset);
 });
+function toggleCours(el){
+  var detail=el.nextElementSibling;
+  var isOpen=detail.classList.contains('open');
+  document.querySelectorAll('.cours-detail').forEach(function(d){d.classList.remove('open');});
+  document.querySelectorAll('.cours-pill').forEach(function(p){p.classList.remove('open');});
+  if(!isOpen){detail.classList.add('open');el.classList.add('open');}
+}
 </script>
 </body>
 </html>
