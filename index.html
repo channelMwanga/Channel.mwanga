@@ -142,9 +142,9 @@ footer p{font-size:0.75rem;color:rgba(255,255,255,0.3);}
 .film-poster{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;}
 .film-card:hover .film-poster{transform:scale(1.05);}
 .film-overlay{position:absolute;inset:0;background:rgba(13,27,42,0;transition:background 0.3s;}
-.film-card:hover .film-overlay{background:rgba(13,27,42,0.85);}
+.film-card.open .film-overlay{background:rgba(13,27,42,0.85);}
 .film-info{position:absolute;inset:0;padding:1.2rem;display:flex;flex-direction:column;justify-content:flex-end;opacity:0;transition:opacity 0.3s;}
-.film-card:hover .film-info{opacity:1;}
+.film-card.open .film-info{opacity:1;}
 .film-title{font-family:'Playfair Display',serif;font-size:0.95rem;color:white;font-weight:700;margin-bottom:0.5rem;}
 .film-desc{font-size:0.72rem;color:rgba(255,255,255,0.8);line-height:1.55;}
 @media(max-width:900px){.films-grid{grid-template-columns:repeat(2,1fr);}}
@@ -533,6 +533,13 @@ document.querySelectorAll('.gallery-item').forEach(item=>{
   // Auto play with random offset so all don't switch at same time
   const offset=Math.random()*3000;
   setTimeout(()=>setInterval(nextSlide,3500),offset);
+});
+  document.querySelectorAll('.film-card').forEach(function(card){
+  card.addEventListener('click',function(){
+    var isOpen=card.classList.contains('open');
+    document.querySelectorAll('.film-card').forEach(function(c){c.classList.remove('open');});
+    if(!isOpen){card.classList.add('open');}
+  });
 });
 function toggleCours(el){
   var detail=el.nextElementSibling;
